@@ -33,7 +33,7 @@ function sumit {
     fname=`basename "$f"`
     flen=`stat -c %s "$f"`
     sha=`rhash --sha3-512 "$f" | head -c 128`
-    echo "$sha,$flen,$fname" >> "$output/$outputfile"
+    echo "$sha,$flen,$fname" >> "$outputfile"
    fi
   done
  
