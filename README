@@ -22,6 +22,10 @@ d0852ccc175850392b75e6024c2a751a4b4684656bbccbafad0e11aa7f9fa41d5f8cde6c13202cbf
 ..
 
 
+Usage:
 
-use the elfchk.sh to check the hash 
+1. unpack the apt-sha_2018-05-03.7z
+2. concatenate the files with 'cat *.sha3 | sort -u >dbfile.dat'
+3. use the elfchk.sh to check the hashes (preferably from livecd), for eg:
+  time ./elfck.sh dbfile.dat /usr >elfcheck_usr.log 2>&1
 
