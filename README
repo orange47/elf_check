@@ -10,16 +10,16 @@ The apt-mirror (68.3Gb, on 2018-05-03) has been created using this:
 sha3-512 hashes have been calculated of all executables inside .deb files 
 
 NOTE: the filename like, for eg., "libj.sha3" mean the hashes inside are of files that belong to .deb packages starting with libj.
-IT IS NOT THE start of executable filename!!
+IT IS NOT THE start of executable filename!
 
-the 'database' is currently in CSV format, like this: hash,filesize[bytes],filename
+the 'database' is currently in CSV format, such as: hash,filesize[bytes],filename
 example:
 ..
 d0852ccc175850392b75e6024c2a751a4b4684656bbccbafad0e11aa7f9fa41d5f8cde6c13202cbfe090b875fce62a2d2a5d9a67f198a2f75c9e7ab1cc56e37f,76816,dd
 ..
 
 
-Usage:
+Usage, to check elf hashes ('client'):
 
 1. unpack the apt-sha_2018-05-03.7z
 2. concatenate the files with 'cat *.sha3 | sort -u >dbfile.dat'
