@@ -1,16 +1,13 @@
-in short:
-these are the sha3-512 hashes of debian-amd64-stable-securities apt repo taken with apt-mirror on 2018-05-03:
+Here are the sha3-512 hashes of debian-amd64-stable-security apt repo taken with apt-mirror on 2018-05-03:
 (apt-sha_2018-05-03.7z, 13Mb, sha512=63972bc2741729dbf1a22ab0b0f2c386601b9553a2318c8b4327c9662f86e7a8a257c1317bf9928a4e12f026c4d9d bb42494b69f86d2685131a4f59525a53c1f )
 
-
-long version:
-I've created a apt-mirror (68.3Gb) using this:
+The apt-mirror (68.3Gb, on 2018-05-03) has been created using this:
 
  deb http://ftp.at.debian.org/debian/ stable main contrib non-free
  deb http://security.debian.org/ stable/updates main contrib non-free
 
-on 2018-05-03.
-and calculated sha3-512 hashes of all executables inside .deb files ( well hopefully all, they were identified using 'if file "$f" | grep -q ": ELF "'... )
+
+sha3-512 hashes have been calculated of all executables inside .deb files 
 
 NOTE: the filename like, for eg., "libj.sha3" mean the hashes inside are of files that belong to .deb packages starting with libj.
 IT IS NOT THE start of executable filename!!
