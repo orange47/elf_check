@@ -1,6 +1,6 @@
 #!/bin/bash
 #elf -> sha
-#sudo mount -t tmpfs -o size=3g,gid=1000,uid=1000,noatime tmpfs /mnt/ramdisk/
+#sudo mount -t tmpfs -o size=5g,gid=1000,uid=1000,noatime tmpfs /mnt/ramdisk/
 
 echo "usage: deb2sha.sh inputdir/ outputdir/"
 
