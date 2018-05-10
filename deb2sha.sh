@@ -29,7 +29,7 @@ function sumit {
 
   for f in $(find "$tempdir" -name '*' -type f)
   do
-   if file "$f" | grep -q ": ELF " 
+   if file -b -e apptype -e ascii -e encoding -e tokens -e cdf -e compress -e elf -e tar -e text  "$f" | grep -i -q ^elf 
    then
     fname=`basename "$f"`
     flen=`stat -c %s "$f"`
