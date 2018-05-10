@@ -58,4 +58,4 @@ do
     
 done
 
-cat $output/*.sha3 | sort -u >$output/dbfile_$date.dat
+#cat $output/*.sha3 | sort -u >$output/dbfile_$date.dat
