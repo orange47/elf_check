@@ -23,6 +23,8 @@ IFS=$'\n'
     if ! grep -F -q "$shack" "$dbfile" 
     then
      echo "ERR:$shack"
+#     else
+#      echo "OK:$shack"
     fi
    fi
   done
