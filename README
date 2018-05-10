@@ -32,5 +32,5 @@ Usage, to create hash database:
 
 1. make apt-mirror:  sudo apt-mirror
 2. mount temp ramdisk with your userid: sudo mount -t tmpfs -o size=3g,gid=1000,uid=1000,noatime tmpfs /mnt/ramdisk/
-   (make sure you have enough RAM, the above allocates 3 Gb!, the largest .deb I could find unpacks to about 1.5 Gb)
+   (make sure you have enough RAM, the above allocates 5 Gb!, the largest .deb I could find so far unpacks to about 4 Gb)
 3. time deb2sha.sh <apt-mirror-dir>  <hash-dir>
