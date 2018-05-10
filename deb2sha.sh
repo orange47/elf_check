@@ -59,4 +59,4 @@ do
     
 done
 
-find $outbase/ -name "*.sha3" -type f  -exec cat {} \;  | sort  >$outbase/dbfile.dat 
+find $outbase/ -name "*.sha3" -type f  -exec cat {} \;  | sort -u >$outbase/dbfile.dat 
