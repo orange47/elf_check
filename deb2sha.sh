@@ -12,6 +12,7 @@ fi
 tempdir='/mnt/ramdisk/1'
 aptdir="$1"
 date=`date +%Y-%m-%d`
+outbase="$2"
 output="$2$date"
 mkdir "$output"
 
@@ -58,4 +59,4 @@ do
     
 done
 
-#cat $output/*.sha3 | sort -u >$output/dbfile_$date.dat
+find $outbase/ -name "*.sha3" -type f  -exec cat {} \;  | sort  >$outbase/dbfile.dat 
