@@ -22,7 +22,7 @@ function sumit {
  workdir="$1"
  outputfile="$output/$2.sha3"
 
- for fdeb in $(find $workdir -mmin -300 -name '*.deb' -type f)
+ for fdeb in $(find $workdir -name '*.deb' -type f)
  do
   fakeroot dpkg -x "$fdeb" "$tempdir"
 
