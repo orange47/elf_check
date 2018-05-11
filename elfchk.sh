@@ -1,6 +1,6 @@
 #!/bin/bash
 
-echo "usage: elfchk.sh dbfile  inputdir/ "
+echo "usage: elfchk.sh elfs.db  inputdir/ "
 
 if [[ $# -eq 0 ]] ; then
     echo 'no args'
@@ -19,8 +19,10 @@ IFS=$'\n'
    then
     fname=`basename "$f"`
     flen=`stat -c %s "$f"`
-    shack="`rhash --sha3-512 "$f" | head -c 128`,$flen,$fname"
-    if ! grep -F -q "$shack" "$dbfile" 
+    flenhex=`echo "obase=16; $flen" |bc`  #hex
+    sha=`rhash -p %B{sha3-512} "$f"`
+    shack="$sha/$flenhex/$fname"
+    if ! grep -Fx -q "$shack" "$dbfile" #proveriti x
     then
      echo "ERR:$shack"
 #     else
