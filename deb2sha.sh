@@ -32,9 +32,10 @@ function sumit {
    if file -b -e apptype -e ascii -e encoding -e tokens -e cdf -e compress -e elf -e tar -e text  "$f" | grep -i -q ^elf 
    then
     fname=`basename "$f"`
-    flen=`stat -c %s "$f"`
-    sha=`rhash --sha3-512 "$f" | head -c 128`
-    echo "$sha,$flen,$fname" >> "$outputfile"
+    flen=`stat -c %s "$f"` #decimal
+    flenhex=`echo "obase=16; $flen" |bc`  #hex
+    sha=`rhash  -p %B{sha3-512} "$f"` #base64
+    echo "$sha/$flenhex/$fname" >> "$outputfile"
    fi
   done
  
@@ -50,6 +51,7 @@ function sumit {
 
 
 for x in {{0..9},{a..z},lib{0..9},lib{a..z}}
+# for x in {0..1}
 do
       echo "$x"
     for d in $(find "$aptdir" -regextype egrep  -regex ".*\/(contrib|main|non-free)\/$x\/.*"  -type d)
@@ -59,4 +61,4 @@ do
     
 done
 
-find $outbase/ -name "*.sha3" -type f  -exec cat {} \;  | sort -u >$outbase/dbfile.dat 
+find $outbase/ -name "*.sha3" -type f  -exec cat {} \;  | sort -u >elfs.db 
