@@ -1,30 +1,27 @@
-Here are the sha3-512 hashes of debian-amd64-stable-security apt repo taken with apt-mirror on 2018-05-03:
-(apt-sha_2018-05-03.7z, 13Mb, sha512=63972bc2741729dbf1a22ab0b0f2c386601b9553a2318c8b4327c9662f86e7a8a257c1317bf9928a4e12f026c4d9d bb42494b69f86d2685131a4f59525a53c1f )
+Here are the sha3-512 hashes of debian-amd64-stable-security apt repo taken with apt-mirror on 2018-05-10:
+(elfs_2018-05-10.7z)
 
-The apt-mirror (68.3Gb, on 2018-05-03) has been created using this:
+
+The apt-mirror (about 70b, on 2018-05-10) has been created using this:
 
  deb http://ftp.at.debian.org/debian/ stable main contrib non-free
  deb http://security.debian.org/ stable/updates main contrib non-free
-
+ deb http://www.deb-multimedia.org stable main non-free
 
 sha3-512 hashes have been calculated of all executables inside .deb files 
 
-NOTE: the filename like, for eg., "libj.sha3" mean the hashes inside are of files that belong to .deb packages starting with libj.
-IT IS NOT THE start of executable filename!
-
-the 'database' is currently in CSV format, such as: hash,filesize[bytes],filename
+the 'database' is currently in text format, such as: hash[base64]/filesize[hex]/filename
 example:
 ..
-d0852ccc175850392b75e6024c2a751a4b4684656bbccbafad0e11aa7f9fa41d5f8cde6c13202cbfe090b875fce62a2d2a5d9a67f198a2f75c9e7ab1cc56e37f,76816,dd
+EaaoUS9FCuYPCrZJg38vGVr7dMKybgI3EksXG2ekVPjh/Lr1eLPD7X9/gSHRQSDXKP8W9I7unEoZscNi6XeD/w==/AFE0/dd
 ..
 
 
 Usage, to check elf hashes ('client'):
 
-1. unpack the apt-sha_2018-05-03.7z
-2. concatenate the files with 'cat *.sha3 | sort -u >dbfile.dat'
-3. use the elfchk.sh to check the hashes (preferably from livecd), for eg:
-  time ./elfchk.sh dbfile.dat /usr >elfcheck_usr.log 2>&1
+1. unpack the elfs_2018-05-10.7z
+2. use the elfchk.sh to check the hashes (preferably from livecd), for eg:
+  time elfchk.sh elfs.db /usr >elfcheck_usr.log 2>&1
 
 
 
@@ -34,3 +31,8 @@ Usage, to create hash database:
 2. mount temp ramdisk with your userid: sudo mount -t tmpfs -o size=5g,gid=1000,uid=1000,noatime tmpfs /mnt/ramdisk/
    (make sure you have enough RAM, the above can eat up to 5 Gb!, the largest .deb I could find so far unpacks to about 4 Gb)
 3. time deb2sha.sh <apt-mirror-dir>  <hash-dir>
+
+
+
+update:
+2018-05-11 minor fixes, changed the database to use base64 to increase efficiency
