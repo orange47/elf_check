@@ -61,4 +61,4 @@ do
     
 done
 
-find $outbase/ -name "*.sha3" -type f  -exec cat {} \;  | sort -u >elfs.db 
+#find $outbase/ -name "*.sha3" -type f  -exec cat {} \;  | sort -u >elfs.db 
