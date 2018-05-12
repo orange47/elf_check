@@ -11,6 +11,7 @@ The apt-mirror (about 70b, on 2018-05-10) has been created using this:
 sha3-512 hashes have been calculated of all executables inside .deb files 
 
 the 'database' is currently in text format, such as: hash[base64]/filesize[hex]/filename
+notice that base64 can contain '/'
 example:
 ..
 EaaoUS9FCuYPCrZJg38vGVr7dMKybgI3EksXG2ekVPjh/Lr1eLPD7X9/gSHRQSDXKP8W9I7unEoZscNi6XeD/w==/AFE0/dd
